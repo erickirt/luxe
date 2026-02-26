@@ -111,6 +111,7 @@ const components: MDXComponents = {
     contentClassName,
     copyCode = true,
     customFilePath,
+    simpleCode,
     ...props
   }) => (
     <CodeBlock
@@ -119,6 +120,7 @@ const components: MDXComponents = {
       className={cn(props.className)}
       contentClassName={contentClassName}
       customFilePath={customFilePath}
+      simpleCode={simpleCode}
       {...props}
     />
   ),
@@ -235,6 +237,7 @@ export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
     <MDXRemote
       components={components}
       options={{
+        blockJS: false,
         mdxOptions: {
           remarkPlugins: [remarkGfm],
           rehypePlugins: [
